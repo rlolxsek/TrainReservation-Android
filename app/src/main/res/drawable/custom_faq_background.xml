@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                    <solid android:color="@color/dark_gray_shadow_1" />
+]                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                    <solid android:color="@color/dark_gray_shadow_2" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                    <solid android:color="@color/dark_gray_shadow_3" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                    <solid android:color="@color/dark_gray_shadow_4" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                    <solid android:color="@color/dark_gray_shadow_5" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:bottom="@dimen/shadow_size" />
+                    <corners android:radius="20dp" />
+                    <solid android:color="@color/dark_gray_shadow_6" />
+                </shape>
+            </item>
+            <!-- Background -->
+            <item>
+                <shape>
+
+                    <solid android:color="@color/gray" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

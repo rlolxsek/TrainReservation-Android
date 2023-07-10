@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/include_guideline_left" />
+
+    <include layout="@layout/include_guideline_right" />
+
+    <include layout="@layout/include_guideline_top" />
+
+    <include layout="@layout/include_guideline_bottom" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        tools:ignore="MissingConstraints">
+        <!-- 메뉴 설정하는 방법 : https://stackoverflow.com/questions/35648913/how-to-set-menu-to-toolbar-in-android -->
+        <include layout="@layout/appbar_get_clear_button"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_nav"
+        app:layout_constraintBottom_toTopOf="@+id/mainGuidelineHorizontalBottom"
+        app:layout_constraintLeft_toRightOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintRight_toLeftOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintTop_toBottomOf="@+id/mainGuidelineHorizontalTop">
+
+
+        <CalendarView
+            android:id="@+id/departureCalendarView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:calendarViewShown="false"
+            android:datePickerMode="calendar"
+            android:scaleX="1.05"
+            android:scaleY="1.05"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 시간 선택 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/departureTimeSelectRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btnDepartureDateSelect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/departureCalendarView" />
+
+        <Button
+            android:id="@+id/btnDepartureDateSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/date_select"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/departureTimeSelectRecyclerView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

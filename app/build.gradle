@@ -1,0 +1,247 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'com.google.dagger.hilt.android'
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// App Level ///////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+static String listToJavaList(Object args) {
+    List<Object> arguments = null
+
+    if(args instanceof List){
+        arguments = (List<Object>)args
+    } else {
+        arguments = new ArrayList<>()
+    }
+
+    StringBuilder builder = new StringBuilder()
+    builder.append("java.util.Arrays.asList(\n")
+    builder.append("    new Object[] {")
+    if(arguments.size() > 0) {
+        for (Object arg : arguments) {
+            if(
+                    !(arg instanceof Boolean
+                            || arg instanceof Character
+                            || arg instanceof Byte || arg instanceof Short || arg instanceof Integer || arg instanceof Long
+                            || arg instanceof Float || arg instanceof Double)
+            ){
+                builder.append("\"${ arg.toString() }\"")
+            } else {
+                builder.append(arg.toString())
+            }
+            builder.append(", ")
+        }
+        builder.setLength(builder.length() - 2)
+    }
+    builder.append("}\n")
+    builder.append(")")
+
+    return builder.toString()
+}
+
+
+android {
+    namespace 'com.sdt.trproject'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.sdt.trproject"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        for (entry in buildConfigConstants) {
+            println("${entry.value}")
+            if (entry.value instanceof Boolean) it.buildConfigField 'boolean', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof Byte) it.buildConfigField 'byte', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof Short) it.buildConfigField 'short', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof Integer) it.buildConfigField 'int', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof Long) it.buildConfigField 'long', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof Float) it.buildConfigField 'float', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof Double) it.buildConfigField 'double', entry.key.toString().toUpperCase(), entry.value.toString()
+            else if (entry.value instanceof List) it.buildConfigField 'java.util.List<Object>', entry.key.toString().toUpperCase(), listToJavaList(entry.value)
+            else it.buildConfigField 'String', entry.key.toString().toUpperCase(), '"' + entry.value + '"'
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+//        jvmTarget = '1.8'
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/mailcap'
+        exclude 'META-INF/mimetypes.default'
+    }
+    buildToolsVersion '30.0.3'
+    ndkVersion '25.2.9519653'
+
+    println("== SourceSets ==============================")
+    final def packages = [
+            '_board',
+    ]
+    sourceSets.all {
+        println(it)
+        // Logics : Create Resource Directory of package
+
+        //https://stackoverflow.com/questions/55204596/grouping-layout-by-folders-android
+        def getSubDirs = { rootResourceDirs, subDir ->
+            def resourcesDirs = new File(rootResourceDirs, subDir)
+            def subResourceDirs = []
+            if (resourcesDirs.exists()) {
+                resourcesDirs.eachDir {
+                    println(it)
+                    subResourceDirs.add it
+                }
+            }
+            return subResourceDirs
+        }
+
+        final def rootResDir = it.res.srcDirs[0]
+        it.res.srcDirs = [ rootResDir ]
+
+        final def packageResDirs = packages
+
+        packageResDirs.collect { packagePath ->
+
+
+            File packageDirectory = new File(rootResDir, packagePath)
+            if(!packageDirectory.exists()) {
+                packageDirectory.mkdir()
+            }
+
+            it.res.srcDirs += "${rootResDir}/$packagePath"
+        }
+        packagingOptions {
+            exclude 'META-INFO/LICENSE.txt'
+            exclude 'LICENSE.txt'
+        }
+    }
+    kotlin.sourceSets.all {
+        languageSettings {
+            optIn("kotlin.RequiresOptIn")
+            //useExperimentalAnnotation("kotlin.RequiresOptIn")
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.airbnb.android:lottie:3.0.7'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'org.chromium.net:cronet-embedded:113.5672.61'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // cookiejar
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.1"
+
+    implementation 'com.sun.mail:android-mail:1.6.3'
+    implementation 'com.sun.mail:android-activation:1.6.3'
+
+    //  라이프 사이클 //////////////////////////////////////////////////////////////////////////////////////
+    def lifecycle_version = "2.5.1"
+    def arch_version = "2.1.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // ViewModel utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    // Annotation processor
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    // optional - helpers for implementing LifecycleOwner in a Service
+    implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+//라이프 사이클 스코프, 뷰 모델 스코프 등/... 사용 가능   :
+//  라이프 사이클 //////////////////////////////////////////////////////////////////////////////////////
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.8'
+    // 롬북
+    implementation 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    // 카메라X 의존성 추가
+
+    def core_version = "1.9.0"
+
+
+    // Java 언어 구현
+    implementation "androidx.core:core:$core_version"
+    // Kotlin
+    implementation "androidx.core:core-ktx:$core_version"
+
+    // RoleManagerCompat를 사용하려면
+    implementation "androidx.core:core-role:1.0.0"
+
+    // 애니메이터 API를 사용하려면
+    implementation "androidx.core:core-animation:1.0.0-beta01"
+    // 애니메이터 API를 테스트하려면
+    androidTestImplementation "androidx.core:core-animation-testing:1.0.0-beta01"
+
+    // 선택적 - GMS 장치의 성능 특성을 쿼리하는 API를 사용하려면
+    implementation "androidx.core:core-performance:1.0.0-alpha02"
+
+    // 선택적 - Google에서 사용될 바로가기를 기부하기 위해 ShortcutManagerCompat를 사용하려면
+    implementation "androidx.core:core-google-shortcuts:1.1.0"
+
+    // 선택적 - RemoteViews의 하위 호환성 지원
+    implementation "androidx.core:core-remoteviews:1.0.0-beta03"
+
+    // 선택적 - SplashScreen용 API, Android 12 이전 장치에 대한 호환성 도우미 포함
+    implementation "androidx.core:core-splashscreen:1.0.0-beta01"
+
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-android-compiler:2.44"
+
+}
+
+kapt {
+    correctErrorTypes = true
+}
+

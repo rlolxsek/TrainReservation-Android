@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/include_guideline_left" />
+
+    <include layout="@layout/include_guideline_right" />
+
+    <include layout="@layout/include_guideline_top" />
+
+    <include layout="@layout/include_guideline_bottom" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        tools:ignore="MissingConstraints">
+        <!-- 메뉴 설정하는 방법 : https://stackoverflow.com/questions/35648913/how-to-set-menu-to-toolbar-in-android -->
+        <include layout="@layout/appbar_get_clear_button"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/enquiry_fragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_nav"
+        app:layout_constraintLeft_toRightOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintRight_toLeftOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintTop_toBottomOf="@+id/mainGuidelineHorizontalTop"
+        app:layout_constraintBottom_toTopOf="@+id/mainGuidelineHorizontalBottom"
+        android:name="com.sdt.trproject.ksh.enquiry.EnquiryListFragment"
+        tools:layout="@layout/fragment_enquiry_list" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

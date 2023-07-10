@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ticket_base_background">
+
+    <include layout="@layout/include_guideline_left" />
+
+    <include layout="@layout/include_guideline_right" />
+
+    <include layout="@layout/include_guideline_top" />
+
+    <include layout="@layout/include_guideline_bottom" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        tools:ignore="MissingConstraints">
+        <!-- 메뉴 설정하는 방법 : https://stackoverflow.com/questions/35648913/how-to-set-menu-to-toolbar-in-android -->
+        <include layout="@layout/appbar_get_clear_button"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/reservationCancelItemLl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_nav"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toTopOf="@+id/mainGuidelineHorizontalTop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reservationCancelItemHeaderCl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/reservation_cancel_item_header"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tvReservationCancelDepartDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="20nn년 n월 n일 (n)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvReservationCancelTicketCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="n매"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reservationCancelItemBodyCl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mid_gray"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="25dp"
+            >
+
+            <TextView
+                android:id="@+id/tvReservationCancelTrainNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="[SRT 309]"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvReservationCancelRouteInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="동대구(00:00) -> 부산(00:00)"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvReservationCancelTrainNo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnReservationCancelConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/reservation_cancel"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/reservation_cancel_item_button"
+            />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

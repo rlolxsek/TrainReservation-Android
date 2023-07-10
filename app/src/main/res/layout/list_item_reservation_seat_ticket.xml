@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/seatTicketItemCl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ticket_box_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ticketScheduleTopDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvSeatTicketDepartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="2023년 05월 31일(수)"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ticketScheduleDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:background="@drawable/custom_item_reservation_seat_ticket"
+            app:layout_constraintBottom_toTopOf="@+id/ticketScheduleFooter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ticketScheduleTopDate">
+
+            <LinearLayout
+
+                android:id="@+id/ticketScheduleStation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvSeatTicketDepartStation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="서대구"
+                    android:textSize="26dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_arrow_circle_right" />
+
+                <TextView
+                    android:id="@+id/tvSeatTicketArriveStation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="동대구"
+                    android:textSize="26dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ticketScheduleTimeLl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ticketScheduleStation">
+
+                <TextView
+                    android:id="@+id/tvSeatTicketDepartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginRight="55dp"
+                    android:text="10:48"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSeatTicketArriveTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="55dp"
+                    android:gravity="center"
+                    android:text="10:58"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ticketScheduleMidBoxLl"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ticketScheduleTimeLl"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/schedule_item_list_input_divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/dark_gray" />
+
+                <LinearLayout
+                    android:id="@+id/detailsTextBox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="left"
+
+                    >
+
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketTrainType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SRT"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/primary"
+                        android:textStyle="bold"
+                        android:paddingEnd="5dp" />
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketTrainNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="319"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/primary"
+                        android:textStyle="bold"
+                        android:paddingEnd="5dp" />
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adult"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:paddingEnd="5dp" />
+
+                    <RelativeLayout
+                        android:layout_width="0.75dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/dark_gray"
+                        android:layout_marginTop="5dp"
+
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketCarriageGrade"
+                        android:layout_width="37dp"
+                        android:layout_height="18dp"
+                        android:text="일반실"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:paddingStart="5dp"
+                        />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/schedule_item_list_input_divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/dark_gray"
+
+                    />
+
+                <LinearLayout
+                    android:id="@+id/detailsTextBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="20dp">
+
+
+                    <TextView
+                        android:id="@+id/ticketScheduleOrigin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="타는곳"
+                        android:textSize="24sp"
+                        android:textColor="@color/dark_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:paddingEnd="5dp" />
+
+                    <TextView
+                        android:id="@+id/preDepartureMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="출발 15분전 표출"
+                        android:textSize="12sp"
+                        android:textColor="#5974D6"
+                        android:textStyle="bold"
+                        android:paddingEnd="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/detailsTextBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketCarriageNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2호차"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:paddingEnd="5dp"
+                        android:layout_weight="1"
+                        android:gravity="right" />
+
+                    <RelativeLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/dark_gray"
+                        android:layout_marginTop="5dp"
+
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketSeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10D"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:paddingStart="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+
+
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSeatTicketReservationId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="81218-0518-11174-33"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/schedule_item_list_input_divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/dark_gray"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reservation_seat_ticket_notice"
+                    android:padding="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_gray"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/tvSeatTicketCurrentDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2023-05-18"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_marginRight="3dp"/>
+                    <TextView
+                        android:id="@+id/tvSeatTicketCurrentTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15 : 21 : 28"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_marginLeft="3dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/primary"
+                    android:padding="5dp"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ticketSchedulePriceBox"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ticketScheduleMidBoxLl"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="운임요금 합계"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:layout_marginStart="5dp"/>
+
+                <TextView
+                    android:id="@+id/tvSeatTicketCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7500원"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_marginStart="5dp"/>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/schedule_item_list_input_divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_gray"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ticketSchedulePriceBox"
+                />
+            <LinearLayout
+                android:id="@+id/ticketScheduleDiscountBox"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ticketSchedulePriceBox"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="할인금액"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:layout_marginStart="5dp"/>
+
+                <TextView
+                    android:id="@+id/tvSeatTicketDiscountCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100원"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_marginStart="5dp"/>
+
+
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/schedule_item_list_input_divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_gray"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ticketScheduleDiscountBox"
+                />
+            <LinearLayout
+                android:id="@+id/ticketSchedulePaymentBox"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ticketScheduleDiscountBox"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="영수액"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:layout_marginStart="5dp"/>
+
+                <TextView
+                    android:id="@+id/tvSeatTicketFinalCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7400원"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_marginStart="5dp"/>
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ticketScheduleFooter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="혁신 선도, 국민의 철도 플랫폼"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_view"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/design_navigation_list">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/menu_reservation" />
+        <item
+            android:id="@+id/nav_reservation"
+            android:title="@string/menu_check" />
+        <item
+            android:id="@+id/nav_notice"
+            android:title="@string/menu_notice" />
+        <item
+            android:id="@+id/nav_faq"
+            android:title="@string/menu_FAQ" />
+        <item
+            android:id="@+id/nav_coupon"
+            android:title="@string/menu_coupon"
+            />
+
+
+    </group>
+
+</menu>

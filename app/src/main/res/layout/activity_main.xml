@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mid_gray"
+    >
+
+    <include layout="@layout/include_guideline_left"/>
+    <include layout="@layout/include_guideline_right"/>
+    <include layout="@layout/include_guideline_center"/>
+
+    <TextView
+        android:id="@+id/tvMainNoticeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="공지사항 : 열차 도착 지연 안내. 늦어서 죄송합니다."
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:background="@color/secondary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroupTripSelect"
+        />
+
+    <RadioGroup
+        android:id="@+id/radioGroupTripSelect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainNoticeBanner"
+        >
+
+        <RadioButton
+            android:id="@+id/radioButtonOnewayTrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:button="@null"
+            android:text="@string/one_way"
+            android:textColor="@color/dark_gray"
+            android:textSize="18sp"
+            android:checked="true"
+            />
+
+<!--        style="@style/RadioButtonNoButtonStyle"-->
+        <RadioButton
+            android:id="@+id/radioButtonRoundTrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:button="@null"
+            android:text="@string/round_way"
+            android:textColor="@color/dark_gray"
+            android:textSize="18sp"
+            />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/stationSelectLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupTripSelect">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/departureStationSelectGroupCl"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/departureStationSelectLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:elevation="10dp"
+                android:text="@string/departure"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnDepartureStationSelect"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/departure_station"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_large"
+                android:background="@drawable/station_select_button_style"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/arrivalStationSelectGroupCl"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginStart="2dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/arrivalStationSelectLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:elevation="10dp"
+                android:text="도착"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnArrivalStationSelect"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/arrival_station"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_large"
+                android:background="@drawable/station_select_button_style"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnOpenDepartureCalendar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/departure_date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_medium"
+        android:background="@drawable/station_select_button_style"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@+id/stationSelectLinearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenReturnCalendar"
+        />
+
+    <Button
+        android:id="@+id/btnOpenReturnCalendar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/arrival_date"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/black"
+        android:background="@drawable/station_select_button_style"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenDepartureCalendar" />
+
+    <!-- 인원 선택 버튼 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llAgeCountContainer"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:background="@drawable/station_select_button_style"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenReturnCalendar">
+        <TextView
+            android:id="@+id/adulttext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/adult"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/llAdultAgeCountWrap"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/childrentext"
+            />
+        <LinearLayout
+            android:id="@+id/llAdultAgeCountWrap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="3dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/llChildAgeCountWrap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+
+
+            <Button
+                android:id="@+id/btnAdultMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/station_select_button_style"
+                android:text="@string/minus"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_medium"/>
+
+            <!-- 중간 숫자 표시를 위한 TextView -->
+
+            <!-- "+" 버튼 -->
+            <TextView
+                android:id="@+id/tvAdultCount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:text="@string/adult_count"
+                android:textAlignment="center"
+                android:gravity="center"
+                />
+
+            <Button
+                android:id="@+id/btnAdultPlus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/station_select_button_style"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/plus" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/childrentext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/children"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/llChildAgeCountWrap"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/adulttext"
+            app:layout_constraintRight_toLeftOf="@+id/oldtext"
+
+            />
+        <LinearLayout
+            android:id="@+id/llChildAgeCountWrap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="3dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toRightOf="@+id/llAdultAgeCountWrap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/llChildOldCountWrap">
+
+            <Button
+                android:id="@+id/btnChildMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/station_select_button_style"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/minus"
+                tools:ignore="NestedWeights" />
+
+            <!-- 중간 숫자 표시를 위한 TextView -->
+            <TextView
+                android:id="@+id/tvChildCount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/child_count"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:gravity="center"
+                />
+
+            <!-- "+" 버튼 -->
+            <Button
+                android:id="@+id/btnChildPlus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/station_select_button_style"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/plus" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/oldtext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/old"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/llChildOldCountWrap"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/childrentext"
+            />
+        <LinearLayout
+            android:id="@+id/llChildOldCountWrap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/llChildAgeCountWrap"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btnOldMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/station_select_button_style"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/minus"
+                tools:ignore="NestedWeights" />
+
+            <!-- 중간 숫자 표시를 위한 TextView -->
+            <TextView
+                android:id="@+id/tvOldCount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/old_count"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:gravity="center"
+                />
+
+            <!-- "+" 버튼 -->
+            <Button
+                android:id="@+id/btnOldPlus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/station_select_button_style"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/plus" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnSearchTrain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_for_train"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button_background"
+        app:layout_constraintEnd_toEndOf="@+id/mainGuidelineVerticalRight"
+        app:layout_constraintStart_toStartOf="@+id/mainGuidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@id/llAgeCountContainer"
+        app:layout_constraintBottom_toTopOf="@id/mainBannerImage"
+        />
+
+    <ImageView
+        android:id="@+id/mainBannerImage"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/must_travel"
+        app:layout_constraintStart_toStartOf="@id/mainGuidelineVerticalLeft"
+        app:layout_constraintEnd_toEndOf="@id/mainGuidelineVerticalRight"
+        app:layout_constraintTop_toBottomOf="@id/btnSearchTrain"
+
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

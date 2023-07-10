@@ -1,0 +1,24 @@
+buildscript {
+    ext {
+        //Clean > Rebuild
+        buildConfigConstants = [
+
+                SERVER_ADDR: 'http://43.201.73.31:4002', // AWS 서버
+
+                BOOL_VALUE : true //com.halowin.android.BuildConfig.BOOL_VALUE
+        ]
+        agp_version = '7.4.2'
+    }
+    repositories {
+        google()
+    }
+}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.library' version '7.4.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'org.jetbrains.kotlin.plugin.parcelize' version '1.5.0' apply false
+    id 'com.google.dagger.hilt.android' version '2.44' apply false
+}

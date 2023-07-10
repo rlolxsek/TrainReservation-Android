@@ -1,0 +1,240 @@
+<resources>
+    <string name="app_name">기차 예매 시스템</string>
+    <string name="LOGO">SRT</string>
+    <string name="sun">일</string>
+    <string name="mon">월</string>
+    <string name="tue">화</string>
+    <string name="wed">수</string>
+    <string name="thu">목</string>
+    <string name="fri">금</string>
+    <string name="sat">토</string>
+    <string name="adult">어른</string>
+    <string name="children">어린이</string>
+    <string name="old">경로</string>
+
+    <string name="delay_time">지연시간(분)</string>
+    <string name="departure_time">출발시간</string>
+    <string name="arrival_time">도착시간</string>
+    <string name="train_time">열차시간</string>
+    <string name="departure_station">출발역</string>
+    <string name="arrival_station">도착역</string>
+    <string name="departure">출발</string>
+    <string name="arrival">도착</string>
+    <string name="day_before">이전 날</string>
+    <string name="day_next">다음 날</string>
+    <string name="departure_date">가는날 선택</string>
+    <string name="arrival_date">오는날 선택</string>
+
+    <string name="date_select">날짜 선택</string>
+
+    <string name="at_message">`@`</string>
+
+    <string name="name">이름</string>
+    <string name="birth">생년월일\n(8자리)</string>
+    <string name="phone">휴대폰번호</string>
+
+    <string name="email">이메일</string>
+    <string name="email_check">이메일 인증</string>
+    <string name="email_link">이메일 주소</string>
+    <string name="email_link_search">이메일주소찾기</string>
+    <string name="station">역명</string>
+
+    <string name="check">확인</string>
+    <string name="cancel">취소</string>
+    <string name="login">로그인</string>
+    <string name="auto_login">자동로그인</string>
+    <string name="member_number">회원번호</string>
+    <string name="member_number_save">회원번호 저장</string>
+    <string name="member_email_save">이메일 저장</string>
+    <string name="member_phone_save">전화번호 저장</string>
+    <string name="member_number_search">회원번호찾기</string>
+    <string name="join_membership">회원가입</string>
+    <string name="receive">수신동의</string>
+    <string name="password">비밀번호</string>
+    <string name="password_check">비밀번호 확인</string>
+    <string name="new_pw">신규 비밀번호</string>
+    <string name="pw_search">비밀번호 찾기</string>
+    <string name="confirmation_num">인증번호</string>
+    <string name="confirmation">인증하기</string>
+    <string name="changeThisToMain">메인화면으로</string>
+
+
+    <string name="gender">성별</string>
+    <string name="gender_man">남</string>
+    <string name="gender_woman">여</string>
+    <string name="Duplicate_check">중복조회</string>
+    <string name="change">변경하기</string>
+    <string name="information_edit">내정보수정</string>
+    <string name="tiket_details">발권내역 n매</string>
+    <string name="discount_coupon">할인쿠폰 n매</string>
+
+    <string name="minus">-</string>
+    <string name="adult_count">1</string>
+    <string name="plus">+</string>
+    <string name="child_count">0</string>
+    <string name="old_count">0</string>
+    <string name="search_for_train">기차조회</string>
+    <string name="at_mark">\@</string>
+
+    <string name="one_way">편도</string>
+    <string name="round_way">왕복</string>
+
+    <string name="refund">승차권환불</string>
+    <string name="refund_warning">환불하시겠습니까?</string>
+    <string name="refund_cancel">환불 취소</string>
+    <string name="request_cancel">최종 환불 요청</string>
+    <string name="request_cancel_check">최종 환불 확인</string>
+    <string name="payment">결제하기</string>
+    <string name="reservation_cancel">예약취소</string>
+    <string name="total_payment">총 결제금액</string>
+    <string name="discount_payment">할인금액</string>
+    <string name="charge">운임요금</string>
+
+    <string name="menu_reservation">승차권 예매</string>
+    <string name="menu_check">승차권 확인</string>
+    <string name="menu_notice">공지사항</string>
+    <string name="menu_FAQ">1:1 문의</string>
+    <string name="menu_coupon">쿠폰확인/등록</string>
+    <string name="list">목록</string>
+    <string name="select">선택하기</string>
+    <string name="available">유효기간</string>
+
+    <string name="nav_header_non_member">로그인 하세요.  </string>
+
+    <string name="footer_1">철도범죄신고 1588-7722</string>
+    <string name="footer_2">고객센터 1800-1472</string>
+    <string name="footer_3">09:00 ~ 18:00 | ARS 연중무휴</string>
+    <string name="footer_4">주식회사 Y2K</string>
+    <string name="footer_5">COPYRIGTH(C) 2023 TEAM.Y2K</string>
+    <string name="footer_6">ALL RIGHTS RESERVED</string>
+    <string name="footer_7">기업 소개 | 개인정보처리방침</string>
+    <string name="footer_login">  로그인</string>
+    <string name="footer_logout"> 로그아웃</string>
+    <string name="bottom_logo">혁신 선도, 국민의 철도 플랫폼</string>
+
+
+    <string name="btn_cancel">취소</string>
+    <string name="btn_exit">종료</string>
+
+
+    <string name="member_pw_find" translatable="false">
+        <u>비밀번호 찾기</u>
+      </string>
+
+    <string name="num_find_text" translatable="false">
+<b>회원님의
+회원번호는 아래와 같습니다.</b>
+    </string>
+    <string name="num_find_text2" translatable="false">
+<b>(회원번호를 터치하면 회원번호가 복사됩니다.)</b>
+    </string>
+
+    <string name="membernum_notice" translatable="false">
+    <b>* 회원번호 분실시</b>
+         이메일 인증을 통해 회원번호 확인이 가능합니다.
+    </string>
+
+    <string name="pw_notice" translatable="false">
+    <b>* 회원번호 변경</b>
+        로그인에 사용하는 비밀번호 입니다.
+    </string>
+
+    <string name="pw2_notice" translatable="false">
+    <b>* 비밀번호 분실시</b>
+        이메일 인증과 회원번호를 통해 비밀번호 변경이
+        가능합니다.
+    </string>
+
+    <string name="member_id_find" translatable="false">
+        <u>회원번호 찾기</u>
+      </string>
+
+    <string name="identification" translatable="false">
+        <b>* 본인 명의의 이메일 인증을 통한 가입 신청을 원하신
+            다면 이메일 입력후 인증번호 확인을 진행해주세요.</b>
+      </string>
+
+    <string name="exit_dialog_massage" translatable="false">
+<h><b>경고</b>
+</h>
+\n
+\n
+앱을 종료하시겠습니까?
+    </string>
+
+    <string name="refund_text" translatable="false">
+<b>환불시 환불기한은 영업일을 기준으로
+
+당일 결제.당일 환불 :
+당일 취소 처리(부분취소 제외)
+그외
+
+-신용카드 : D+5~7일
+-체크카드 : D+6~8일
+-계좌이체 : D+5~10일
+-OK캐쉬백 : 즉시(전체,부분취소 모두)
+
+*카드사 마다 환불 기준, 기간 상이 </b>
+    </string>
+
+    <string name="refund_fee_text" translatable="false">
+        <p>
+<b>본 승차권은 환불 하실 때
+<font color="#8A62A9">위약금0원</font>이 발생합니다.\n
+
+환불일로부터 약 7일이후 결제가 취소되며,\n
+카드사에서는 고객님의 결제일에 신용으로\n
+환불해드리고 있습니다.\n
+정확한 환불일자는 고객님의 결제일에 따라
+다르므로 자세한 사항은 해당 카드사에 문의
+하여 주시기 바랍니다.
+
+아울러 열차 이용 중 승차권 환불 시 SR직원
+의 승차권 확인 대상이 될 수 있으며,
+부정사용이 확인될 경우 철도사업법
+제10조에 따라 해당구간의 기준운임
+외 30배 이내의 부가운임이
+발생됨을 알려드립니다.
+
+<font color="#8A62A9">환불하시겠습니까?</font></b>
+            </p>
+
+</string>
+
+<string name="refund_done_text" translatable="false">
+<b>승차권이 정상환불 되었습니다.
+신용(체크)카드의 경우, 환불 후 7일 이후
+카드사를 통해 확인하시기 바랍니다.</b>
+    </string>
+
+<string name="photo">사진 촬영</string><string name="photo_in_gallery">사진 선택</string><string name="photo_notice" translatable="false">
+    <b>* 회원 사진 변경</b>
+         사진 촬영 또는 갤러리 에서 사진을 불러옵니다.
+    </string>
+
+
+<string name="faq_notice" translatable="false">
+<b>2023. 05. 15. (월) 0시 이후부터 SRT앱
+업데이트 시개선된 SRT앱 서비스를 이용하실 수 있습니다.
+
+- 구글 : 플레이스토어에서 SRT앱 업데이트 시 서비스를 이용 가능
+- IOS : 앱스토어에서 SRT앱 업데이트 시 서비스 이용 가능
+
+감사합니다.</b>
+</string>
+
+<string name="qna_q" translatable="false">
+<b>질문입니다.
+감사합니당.</b>
+</string>
+
+<string name="qna_a" translatable="false">
+<b>답변입니다.
+감사합니당.</b>
+</string>
+
+<string name="reservation_seat_ticket_notice" translatable="false">
+<b>타는 곳은 열차 출발 15분전 역사 내 전광판을 확인하여 주시기 바랍니다.</b>
+</string>
+
+    </resources>
